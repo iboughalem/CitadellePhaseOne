@@ -1,4 +1,4 @@
-package district;
+package card.district;
 
 public enum NobilityDistrict {
 	

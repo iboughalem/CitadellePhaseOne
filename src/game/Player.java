@@ -154,7 +154,7 @@ public class Player {
 
         System.out.println("Liste des cartes disponible : ");
         System.out.println(cardManager.toStringCharacterCards());
-        System.out.println("Choisir une carte : ");
+        System.out.println("Veuillez faire votre choix de carte : ");
 
         String choice = scanner.nextLine();
 
@@ -169,11 +169,11 @@ public class Player {
                 }
                 cardManager.shuffleCharacterCards();
             } else {
-                System.out.println("Vous avez tapé un mauvais caractère.");
+                System.out.println("Vous avez saisi un mauvais caractere.");
                 this.chooseCharacterCard(cardManager, characterNumber);
             }
         } else {
-            System.out.println("Vous avez tapé un mauvais caractère.");
+            System.out.println("Vous avez saisi un mauvais caractere.");
             this.chooseCharacterCard(cardManager, characterNumber);
         }
     }
@@ -190,7 +190,7 @@ public class Player {
             authorisedString.add(character.getNumber());
         }
 
-        System.out.println("Choisir une carte à défausser : ");
+        System.out.println("Choisir une carte a defausser : ");
         System.out.println(cardManager.toStringCharacterCards());
         String numberOfTheCard = scanner.nextLine();
 
@@ -199,11 +199,11 @@ public class Player {
                 cardManager.discardCharacterCard(Integer.parseInt(numberOfTheCard));
                 cardManager.shuffleCharacterCards();
             } else {
-                System.out.println("Vous avez tapé un mauvais caractère.");
+                System.out.println("Vous avez saisi un mauvais caractere.");
                 this.discardCharacterCard(cardManager);
             }
         } else {
-            System.out.println("Vous avez tapé un mauvais caractère.");
+            System.out.println("Vous avez saisi un mauvais caractere.");
             this.discardCharacterCard(cardManager);
         }
 
@@ -234,7 +234,7 @@ public class Player {
             System.out.println(i + ") " + districtCards.get(i - 1));
         }
 
-        System.out.println("Choisir une carte : ");
+        System.out.println("Veuillez votre choix de carte : ");
 
         String choice = scanner.nextLine();
 
@@ -249,11 +249,11 @@ public class Player {
                 this.districtCards.add(districtCards.get(1));
                 cardManager.putDistrictCardToTheEnd(districtCards.get(0));
             } else {
-                System.out.println("Vous avez tapé un mauvais caractère.");
+                System.out.println("Vous avez saisi un mauvais caractere.");
                 this.chooseDistrictCard(cardManager);
             }
         } else {
-            System.out.println("Vous avez tapé un mauvais caractère.");
+            System.out.println("Vous avez saisi un mauvais caractere.");
             this.chooseDistrictCard(cardManager);
         }
     }
@@ -265,8 +265,8 @@ public class Player {
      */
     public final void takeCoinsOrCards(final CardManager cardManager) {
         System.out.println("Que voulez-vous faire ?");
-        System.out.println("1) Prendre deux pièces d'or");
-        System.out.println("2) Piocher deux cartes et en défausser une");
+        System.out.println("1) Prendre deux pieces d'or");
+        System.out.println("2) Piocher deux cartes et en defausser une");
 
         String choice = scanner.nextLine();
 
@@ -275,15 +275,15 @@ public class Player {
 
             if (options == 1) { //get coins
                 this.setCoins(this.getCoins() + Bank.getInstance().giveCoins(2));
-                System.out.println("Vous avez pris deux pièces d'or");
+                System.out.println("Vous avez choisi de prendre deux pieces d'or");
             } else if (options == 2) { //get cards
                 this.chooseDistrictCard(cardManager);
             } else {
-                System.out.println("Vous avez tapé un mauvais caractère.");
+                System.out.println("Vous avez saisi un mauvais caractere.");
                 this.takeCoinsOrCards(cardManager);
             }
         } else {
-            System.out.println("Vous avez tapé un mauvais caractère.");
+            System.out.println("Vous avez saisi un mauvais caractere.");
             this.takeCoinsOrCards(cardManager);
         }
     }
@@ -309,7 +309,7 @@ public class Player {
                 System.out.println(i + ") " + this.districtCards.get(i - 1));
                 authorisedString.add(i);
             }
-            System.out.println("Si vous voulez poser une carte, tapez son numero sinon tapez \"n\".");
+            System.out.println("Si vous voulez poser une carte, saisissez son numero sinon tapez \"n\".");
             options = scanner.nextLine();
 
             if (options.equals("n")) {
@@ -350,8 +350,8 @@ public class Player {
                                 Bank.getInstance().takeCoins(card.getCost());
                                 this.districtCards.remove(cardNumber);
 
-                                System.out.println("Vous avez pose cette carte : " + card);
-                                System.out.println("Il vous reste " + this.coins + " pièce(s) d'or");
+                                System.out.println("Vous venez de poser cette carte : " + card);
+                                System.out.println("Il vous reste " + this.coins + " piece d'or");
                             } else {
                                 System.out.println("Vous avez deja�cette carte dans votre cite");
                                 this.placeDisctrictCard(tray, isFirstPlayer, isArchitect);
@@ -420,7 +420,9 @@ public class Player {
                 + "\npiece d'or: " + this.coins
                 + "\nnombre de carte quatiers: " + this.districtCards.size()
                 + "\npremier personnage: " + this.firstCharacter
-                + "\nsecond personnage: " + this.secondCharacter;
+                + "\nsecond personnage: " + this.secondCharacter
+                //+"\nCartes � la main: " + this.districtCards.toString()
+                ;
     }
 
 }

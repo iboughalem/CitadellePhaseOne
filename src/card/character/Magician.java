@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import card.CardManager;
-import game.PowerManager;
 import util.StringUtils;
 import game.Player;
 import card.district.*;
