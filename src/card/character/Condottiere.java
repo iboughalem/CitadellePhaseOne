@@ -147,5 +147,4 @@ public class Condottiere extends Character {
             System.out.println("L'adversaire a  deja  " + Tray.NUMBER_CARD_TO_WIN + " quartiers, vous ne pouvez pas detruire sa cite.");
         }
     }
-
 }
